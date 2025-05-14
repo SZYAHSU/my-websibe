@@ -1,0 +1,31 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>登入</title>
+    <script>
+      function onSubmit() {
+        var password = document.getElementById('password').value;
+        // 使用 google.script.run 呼叫 Apps Script 進行驗證
+        google.script.run.withSuccessHandler(onSuccess).validatePassword(password);
+      }
+      
+      function onSuccess(isValid) {
+        if (isValid) {
+          // 密碼正確，跳轉到網頁
+          window.location.href = 'https://yourwebsite.com'; // 或者是其他網頁的 URL
+        } else {
+          alert("密碼錯誤！");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>登入</h1>
+    <form onsubmit="event.preventDefault(); onSubmit();">
+      <label for="password">密碼：</label>
+      <input type="password" id="password" required />
+      <button type="submit">登入</button>
+    </form>
+  </body>
+</html>

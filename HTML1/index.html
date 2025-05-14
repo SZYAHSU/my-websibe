@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>網站 Logo</title>
+  <link rel="stylesheet" href="index.styless.css">
+  <link rel="stylesheet" href="home.style.css">
+  <body onload="loadPage('home.html')">
+  <base target="_top">
+</head>
+
+<body>
+  <header>
+    <img src="電機.png" alt="亞東科技大學" width="300">
+  </header>
+
+<!-- 浮動選單按鈕（點擊後顯示/隱藏側邊選單） -->
+<div class="floating-menu">
+  <!-- 點選不跳頁，只觸發 JS -->
+  <a href="menu.html" class="menu-button" title="選單" onclick="toggleSideMenu(); return false;">
+    <img src="選單_去背.png" alt="選單">
+  </a>
+  <a href="home.html" class="menu-button" title="首頁" onclick="loadPage('home.html'); return false;">
+      <img src="首頁_去背.png" alt="首頁">
+  </a>
+  <a href="logout.html" class="menu-button" title="登出" onclick="logout(); return false;">
+        <img src="登出_去背.png" alt="登出">
+  </a> 
+    <!-- 可加更多按鈕 -->
+    <!--
+    <a href="settings.html" class="menu-button" title="設定">
+      <img src="settings-icon.png" alt="設定">
+    </a>
+    -->
+  </div>        
+
+  <div class="container">
+    <!-- 側邊選單 -->
+    <div class="sideMenu">
+
+      <form>
+        <input type="search" placeholder="請輸入搜尋名稱" />
+        <button><i class="fas fa-search"></i></button>
+      </form>
+
+      <nav>
+        <div class="sidebar">
+          <button onclick="loadPage('main1.html')">燈光控制</button>
+          <button onclick="loadPage('main2.html')">窗簾控制</button>
+          <div id="air-submenu" class="submenu">
+            <button onclick="loadPage('main4.html')">溫溼度</button>
+          </div>
+          <div id="energy-submenu" class="submenu">
+            <button onclick="loadPage('main3.html')">負載感測</button>           
+            <button onclick="loadPage('main5.html')">鏡頭</button>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- 右側內容顯示區 -->
+    <div class="content" id="content">
+    </div>
+
+    <!-- 引入外部 JavaScript 檔案 -->
+    <script src="index.js"></script>
+    <script src="main3.script.js" defer></script>
+    <script src="https://cdn.rawgit.com/Mikhus/canvas-gauges/gh-pages/download/2.1.7/all/gauge.min.js" defer></script>
+    <script src="index.js" defer></script>
+
+</body>
+
+</html>
